@@ -1,6 +1,3 @@
-# Ausgabe Ventilatorsteuerung in %
-# Eingabe Temperatur in Grad Celsius
-#
 # 1. Fuzzifizierung
 #   Preisniveau und Qualität
 #   Preisniveau 0-100 Euro pro Ware:
