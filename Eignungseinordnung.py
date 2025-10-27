@@ -28,7 +28,7 @@ def main():
     qal, niv = getInput()
     print(f"Eingabe: Qualität:{qal} Preisniveau{niv}")
 
-    # Werte für Preisniveau und Qualität ermitteln
+    # Fuzzifizierung - Werte für Preisniveau und Qualität ermitteln
     nivnied, nivmittel, nivgroß = ermittlePreisniveau(niv)
     qualnied, qualmittel, qualgroß = ermittleQualitaet(qal)
 
@@ -47,6 +47,7 @@ def main():
     nivArr = [nivnied, nivmittel, nivgroß]
     qualArr = [qualnied, qualmittel, qualgroß]
 
+    # Defuzzifizierung - Eignung von qualitaet und preisniveau ableiten 
     eignung, eignungVal = ermittleEignung(qualitaet=qualArr, preisniveau=nivArr)
 
     print(f"Kalkulatorischer Wert der Eignung ist:{eignungVal}")
@@ -70,6 +71,10 @@ def getInput():
         else:
             print("Gültige Zahl eingeben!")
 
+def getInputOhneErrorHandling():
+    qualitaet = int(input("Eingabewert Qualität(1-5):"))
+    preisniveau = int(input("Eingabewert Preisniveau(1-100):"))
+    return qualitaet,preisniveau
 
 # returns int,int,int gibt Preisniveau im format niedrig,mittel,hoch zurück
 def ermittlePreisniveau(preis):
